@@ -177,30 +177,32 @@ The main purpose is to build a transparent and reproducible research workflow, w
 - 不根据测试集表现反复调整参数；
 - 对关键数据处理函数编写自动测试。
 
-## 13. 暂定项目结构
+## 13. 项目结构
 
 ```text
-project/
+量化模型/
 ├── README.md
 ├── requirements.txt
-├── data/
+├── data/                  # 原始数据与清洗后的研究数据
 │   ├── raw/
 │   └── processed/
-├── notebooks/
-├── scripts/
-│   └── check_environment.py
-├── src/
+├── notebooks/             # 数据探索、学习和可视化笔记
+├── scripts/               # 可直接运行的任务脚本
+├── src/                   # 项目的核心Python代码
 │   ├── config.py
-│   ├── data/
-│   ├── features/
-│   ├── models/
-│   ├── backtest/
-│   └── evaluation/
-├── tests/
-└── outputs/
-    ├── figures/
-    └── tables/
+│   ├── data/              # 数据读取与清洗
+│   ├── features/          # 因子与预测标签计算
+│   ├── models/            # 模型训练与样本外预测
+│   ├── backtest/          # 投资组合构建与回测
+│   └── evaluation/        # 预测和组合表现评价
+├── tests/                 # 自动测试
+├── outputs/               # 程序生成的图表和结果表格
+│   ├── figures/
+│   └── tables/
+└── reports/               # 中英文研究报告与展示材料
 ```
+
+`data`区分原始数据和处理后数据，`notebooks`用于探索，`scripts`用于运行任务，`src`保存可复用的核心代码，`tests`负责自动检查，`outputs`保存程序生成的结果，`reports`保存最终报告和展示材料。
 
 ## 14. 运行环境
 
@@ -253,7 +255,7 @@ python -m pytest
 
 当前阶段：**项目初始化**
 
-- [ ] 建立运行环境
+- [x] 建立运行环境
 - [ ] 确定股票市场和股票池
 - [ ] 获取原始数据
 - [ ] 完成数据质量检查
